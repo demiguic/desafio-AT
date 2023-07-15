@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+import requests
+from yahoo_fin import stock_info as si
+
 
 # Create your views here.
+
 
 def login(request):
     return render(request, 'login.html')
 
-def home(request):
-    return HttpResponse('Hello World, home')
+
+def acoes(request, user):
+
+    return render(request, 'list.html', {'user': user})

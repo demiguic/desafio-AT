@@ -1,0 +1,66 @@
+h1 {
+    color: #000;
+    text-align: center;
+}
+
+/* Adicionar */
+
+.fas.fa-plus {
+    position: absolute;
+    cursor: pointer;
+    font-size: 30px;
+
+}
+.add-div {
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Lista */
+
+.list-div {
+    padding: 0;
+}
+
+.stock_list {
+    padding-left: 0;
+}
+
+.stock-item {
+    list-style: none;
+    font-size: 20px;
+    height: 50px;
+    border-bottom: 1px dashed #202020;
+}
+
+.fas.fa-trash, .fas.fa-edit {
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    float: right;
+}
+
+.fas.fa-trash {
+    color: #db1e47;
+}
+
+.fas.fa-edit {
+    color: #13c43f;
+}
+
+/* rodapé */
+
+footer {
+    background-color: #333;
+    height: 300px;
+    border-top: 2px solid #202020;
+}
+
+footer p {
+    color: #f5f5f5;
+    text-align: center;
+    top: 50%;
+    position: relative;
+}
