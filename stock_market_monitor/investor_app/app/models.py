@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 # Create your models here.
 class User(models.Model):
@@ -9,13 +8,14 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
-class Stock(models.Model):
+class Asset(models.Model):
     name = models.CharField(max_length=10)
     interval = models.PositiveIntegerField()
     superior_limit = models.DecimalField(max_digits=5, decimal_places=2)
     inferior_limit = models.DecimalField(max_digits=5, decimal_places=2)
-    updated_at = models.DateTimeField(default=timezone.now)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    value = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        return self.name
+        return (f'{self.name} - R${self.value}. Updated at {self.date}')

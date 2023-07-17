@@ -5,17 +5,24 @@ h1 {
 
 /* Adicionar */
 
-.fas.fa-plus {
-    position: absolute;
-    cursor: pointer;
-    font-size: 30px;
-
-}
 .add-div {
-    padding: 0px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    background-color: #3476e3;
+    cursor: pointer;
     display: inline-block;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+.fas.fa-plus {
+    color: #fff;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+#add-link {
+    text-decoration: none;
 }
 
 /* Lista */
@@ -28,7 +35,7 @@ h1 {
     padding-left: 0;
 }
 
-.stock-item {
+.asset-item {
     list-style: none;
     font-size: 20px;
     height: 50px;
@@ -63,4 +70,14 @@ footer p {
     text-align: center;
     top: 50%;
     position: relative;
+}
+
+/* messages */
+
+ul.messages {
+    padding: 0;
+}
+
+ul.messages li{
+    list-style: none;
 }
