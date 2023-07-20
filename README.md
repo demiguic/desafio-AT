@@ -10,7 +10,7 @@ Expor uma interface web para permitir que o usuário configure:
 
 O sistema deve obter e armazenar as cotações dos ativos cadastrados de alguma fonte pública qualquer, respeitando a periodicidade configurada por ativo.
 A interface web deve permitir consultar os preços armazenados dos ativos cadastrados.
-Enviar e-mail para o investidor sugerindo a compra sempre que o preço de um ativo monitorado cruzar o seu limite inferior do túnel, e sugerindo a venda sempre que o preço de um ativo monitorado cruzar o seu limite superior do túnel
+Enviar e-mail para o investidor sugerindo a compra sempre que o preço de um ativo monitorado cruzar o seu limite inferior do túnel, e sugerindo a venda sempre que o preço de um ativo monitorado cruzar o seu limite superior do túnel.
 
  ## Guia Para Teste
  - [ ] Instale as dependências contidas no documento 'requirements.txt'
