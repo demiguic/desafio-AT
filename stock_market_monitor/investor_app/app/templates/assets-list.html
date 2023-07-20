@@ -4,30 +4,39 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h1>Suas ações</h1>
-
     <a href="newasset/">
         <div class="col-2 add-div">
             <i class="fas fa-plus"></i>Adicionar Ação
         </div>
     </a>
-
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-        <li {% if message.tag %}class="alert alert-{{message.tag}}" {% endif %}>{{ message }}</li>
+        <li {% if message.tags %}class="alert alert-{{message.tags}}" {% endif %}>{{ message }}</li>
         {% endfor %}
     </ul>
     {% endif %}
-
-    <ul class="stock-list">
-
+    <ul class="asset-list">
         {% for asset in assets %}
         <li class="asset-item">
             <span>{{asset.name}} - R$ {{asset.value}}</span>
-            <a href="delete/{{asset.id}}"><span><i class="fas fa-trash"></i></span></a>
+            <a href="delete/{{asset.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
             <a href="edit/{{asset.id}}"><span><i class="fas fa-edit"></i></span></a>
         </li>
         {% endfor %}
     </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if assets.has_previous %}
+            <a href="?page={{ assets.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+            <span class="current">
+                {{ assets.number }} de {{ assets.paginator.num_pages }}
+            </span>
+            {% if assets.has_next %}
+            <a href="?page={{ assets.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 {% endblock %}
