@@ -24,4 +24,4 @@ EMAIL_HOST=
  - [ ] Inicie o servidor redis com o comando 'redis-server'
  - [ ] Em outro terminal entre no diretório que contem o arquivo 'manage.py'
  - [ ] Execute 'python manage.py runserver' para executar a aplicação
- - [ ] Em outro terminal execute o comando 'worker celery -A investor_app worker -l info --pool=solo' para iniciar o agendador de atividades.
+ - [ ] Em outro terminal execute o comando 'celery -A investor_app worker -l info --pool=solo' para iniciar o agendador de atividades.
