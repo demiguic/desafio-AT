@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Asset(models.Model):
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=10, unique=True)
     interval = models.PositiveIntegerField()
     superior_limit = models.DecimalField(max_digits=5, decimal_places=2)
     inferior_limit = models.DecimalField(max_digits=5, decimal_places=2)
