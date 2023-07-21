@@ -46,6 +46,6 @@ def envia_email(asset, suggestion):
         title,
         body,
         'settings.EMAIL_HOST_USER',
-        ["agdcj.eng20@uea.edu.br"],
+        [settings.EMAIL_RECEIVER_USER],
         fail_silently=False)
     logger.info("Email enviado")
