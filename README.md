@@ -19,6 +19,8 @@ Enviar e-mail para o investidor sugerindo a compra sempre que o preço de um ati
 EMAIL_HOST_USER=
 EMAIL_HOST_PASSWORD=
 EMAIL_HOST=
+EMAIL_RECEIVER_USER=
+
 ~~~
 
  - [ ] Inicie o servidor redis com o comando 'redis-server'
