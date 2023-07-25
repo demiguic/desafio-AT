@@ -23,7 +23,8 @@ EMAIL_RECEIVER_USER=
 
 ~~~
 
- - [ ] Inicie o servidor redis com o comando 'redis-server'
+ - [ ] Inicie o servidor redis com o comando 'redis-server' (É NECESSÁRIO TER O REDIS INSTALADO)
  - [ ] Em outro terminal entre no diretório que contem o arquivo 'manage.py'
+ - [ ] Execute 'python manage.py migrate' para aplicar as migrações
  - [ ] Execute 'python manage.py runserver' para executar a aplicação
  - [ ] Em outro terminal execute o comando 'celery -A investor_app worker -l info --pool=solo' para iniciar o agendador de atividades.
