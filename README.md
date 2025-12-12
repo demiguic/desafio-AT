@@ -1,30 +1,59 @@
- # Desafio AT
+# Desafio Técnico — Processo Seletivo
 
-Os seguintes requisitos funcionais são necessários:
+Aplicação desenvolvida em Django como parte de um processo seletivo.
+O objetivo é permitir que investidores registrem e acompanhem seus ativos financeiros, além de configurar gatilhos de compra/venda com notificação por e-mail e atualização automática de preços.
 
-Expor uma interface web para permitir que o usuário configure:
+---
 
- * os ativos da B3 a serem monitorados;
- * os parâmetros de túnel de preço
- * a periodicidade da checagem (em minutos) de cada ativo
+## 🎯 Funcionalidades
 
-O sistema deve obter e armazenar as cotações dos ativos cadastrados de alguma fonte pública qualquer, respeitando a periodicidade configurada por ativo.
-A interface web deve permitir consultar os preços armazenados dos ativos cadastrados.
-Enviar e-mail para o investidor sugerindo a compra sempre que o preço de um ativo monitorado cruzar o seu limite inferior do túnel, e sugerindo a venda sempre que o preço de um ativo monitorado cruzar o seu limite superior do túnel.
+### Gestão de Ativos
+- Cadastro de ativos (stocks, criptos ou outros).
+- Registro de preço de compra, quantidade e tipo de operação.
+- Interface simples para visualizar performance básica.
 
- ## Guia Para Teste
- - [ ] Instale as dependências contidas no documento 'requirements.txt'
- - [ ] É necessário criar um arquivo .env com os seguintes campos
- ~~~python
-EMAIL_HOST_USER=
-EMAIL_HOST_PASSWORD=
-EMAIL_HOST=
-EMAIL_RECEIVER_USER=
+### Gatilhos de Monitoramento
+O usuário pode configurar:
+- Preço alvo da venda;
+- Preço alvo da compra.
+  
+Quando o preço do mercado atinge o valor configurado, o sistema dispara uma notificação via SMTP.
 
-~~~
+### Atualização Automática (Cronjob / Redis)
 
- - [ ] Inicie o servidor redis com o comando 'redis-server' (É NECESSÁRIO TER O REDIS INSTALADO)
- - [ ] Em outro terminal entre no diretório que contem o arquivo 'manage.py'
- - [ ] Execute 'python manage.py migrate' para aplicar as migrações
- - [ ] Execute 'python manage.py runserver' para executar a aplicação
- - [ ] Em outro terminal execute o comando 'celery -A investor_app worker -l info --pool=solo' para iniciar o agendador de atividades.
+- O usuário define a frequência de atualização para cada ativo individualmente.
+- Uma tarefa assíncrona (via Redis, Celery ) atualiza os preços periodicamente.
+- Integração com API de mercado financeiro (yfinance).
+
+### Notificação por E-mail
+
+- Envio automático quando um target é atingido.
+- Configurável pelo arquivo .env.
+---
+
+## 🛠️ Tecnologias Utilizadas
+- Django (backend principal)
+- Django ORM
+- Redis
+- Celery
+- Requests (para chamada à API de preços)
+- SMTP (notificação)
+
+---
+
+## Arquitetura
+```
+/desafio-AT
+ ├── core/               # Configurações principais
+ ├── assets/             # App responsável pelos ativos
+ ├── triggers/           # Regras de gatilho (preço-alvo)
+ ├── scheduler/          # Integração com Redis / tarefas
+ ├── templates/          # HTML das telas
+ ├── static/             # CSS/JS
+ ├── requirements.txt
+ └── manage.py
+
+```
+
+## Licença
+Projeto desenvolvido exclusivamente para fins de avaliação técnica.
